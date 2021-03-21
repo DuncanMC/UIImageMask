@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         //Use ease-in, ease-out timing, which looks smooth
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
-        animation.duration = 0.3 //Make each step in the animation last 0.3 seconds.
+        animation.duration = 0.5 //Make each step in the animation last 0.3 seconds.
 
 
         let transparentRect: CGRect
@@ -58,7 +58,9 @@ class ViewController: UIViewController {
             transparentRect = self.transparentRect.inset(by: UIEdgeInsets(top: -20, left: 20, bottom: -20, right: 20))
         } else {
             //Shift the transparent rect to by a random amount that still says inside the image view's bounds.
-            transparentRect = self.transparentRect.offsetBy(dx: CGFloat.random(in: -100...20), dy: CGFloat.random(in: -100...100))
+            transparentRect = self.transparentRect
+                .offsetBy(dx: CGFloat.random(in: -100...20), dy: CGFloat.random(in: -120...120))
+                .inset(by: UIEdgeInsets(top: -30, left: -30, bottom: -30, right: -30))
         }
 
         let cornerRadius: CGFloat = CGFloat.random(in: 0...30)
@@ -146,6 +148,12 @@ class ViewController: UIViewController {
         let size = CGSize(width: 200, height: 300)
         let origin = CGPoint(x: 50, y: 50)
         let frame =  CGRect(origin: origin, size: size)
+        let backgroundImageView = UIImageView(frame: frame)
+        backgroundImageView.image = UIImage(named:"Bernie")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        view.addSubview(backgroundImageView)
+
         imageView = UIImageView(frame: frame)
         imageView.image = UIImage(named: "TestImage")
         imageView.contentMode = .scaleAspectFill
