@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     }
 
     /**
-     Function to create a UIImage that is mostly opaque, with a transparent rounded rect "knockout" in it
+     Function to create a UIImage that is mostly opaque, with a transparent rounded rect "knockout" in it. Such an image might be used ask a mask
+     for another view, where the transparent "knockout" appears as a hole in the view that is being masked.
         - Parameter size:  The size of the image to create
         - Parameter transparentRect: The (rounded )rectangle to make transparent in the middle of the image.
         - Parameter cornerRadius: The corner radius ot use in the transparent rectangle. Pass 0 to make the rectangle square-cornered.
